@@ -1,0 +1,13 @@
+{
+    "name": "@huskky/sf",
+    "version": "1.0.0",
+    "description": "tools functions",
+    "license": "MIT",
+    "repository": "huskky/sf",
+    "main": "index.js",
+    "keywords": [
+        "sf",
+        "tools",
+        "functions"
+    ]
+}
