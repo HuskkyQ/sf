@@ -1,4 +1,5 @@
 // npm publish 之前要更新版本号
+const { types } = require('./constant/types.js')
 function sf () {
     console.log('hello sff!')
 }
@@ -34,9 +35,31 @@ const throttle = (fn, delay = 500) => {
     }
 }
 
+const typeOf = (data) => {
+    const type = Object.prototype.toString.call(data);
+    return types[type];
+}
+
+const promisify = (fn) => {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return new Promise((resolve, reject) => {
+            args.push((err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            })
+            fn.apply(null, args);
+        })
+    }
+}
+
 module.exports = {
     sf,
     sf1,
     debounce,
-    throttle
+    throttle,
+    typeOf
 }
